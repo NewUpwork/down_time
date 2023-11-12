@@ -1,29 +1,54 @@
-import {Sequelize} from 'Sequelize';
-import db from '../config/dbconfig.js';
+import { DataTypes } from "sequelize";
+import db from "../config/Database.js";
 
-const {DataTypes} = Sequelize;
 
 const Users = db.define('users',{
-    name: {
-        type: DataType.STRING, 
+    user_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true, 
         allowNull: false
     },
 
-    email: {
-        type: DataType.STRING, 
+    username: {
+        type: DataTypes.STRING,
+        primaryKey: true, 
         allowNull: false,
         unique: true
     },
-    password: {
-        type: DataType.STRING,
+    password_hash: {
+        type: DataTypes.STRING,
         allowNull:false
     },
+    first_name:{
+        type: DataTypes.STRING, 
+        allowNull: false,
+
+    },
+    last_name:{
+
+        type: DataTypes.STRING, 
+        allowNull: false,
+    },
+    profile_picture_url:{
+        type: DataTypes.STRING
+    },
+    accout_status:{
+        type: DataTypes.STRING
+    },
+    role_permissions:{
+        type: DataTypes.JSON
+    },
+
     refresh_token: {
-        type: DataType.TEXT
-    },{freezeTableName: true}
-});
-(async()=>{
+        type: DataTypes.TEXT
+    }
+},{freezeTableName:true, timestamps: false });
+
+//temp should magrate later to production env
+
+(async () => {
     await db.sync();
 })();
 
+     
 export default Users;

@@ -1,68 +1,70 @@
 import Users from "../models/UserModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-
-export const getUser = (req, res) =>{
-    try{
-        const users= await Users.findAll({
-            attributes:['id','name','email']
+ 
+export const getUsers = async(req, res) => {
+    try {
+        const users = await Users.findAll({
+            attributes:['user_id','username','first_name','last_name']
         });
         res.json(users);
-    }catch(e){
-        console.log(e);
+    } catch (error) {
+        console.log(error);
     }
 }
-
-export const Register = async (req, res) =>{
-    const {name, email, password, confPassword} = req.body;
-    if(email===""){
-        res.status(400).json({msg: "Please enter a valid email"});
+ 
+export const Register = async(req, res) => {
+    const { firstName, lastName, email, password, confPassword } = req.body;
+    if(email === ""){
+        res.status(400).json({msg: "Failed. Invalid query."});
         return;
     }
-    const existing= await Users.findAll({attributes:['email'], where:{email:email}});
+    const existing = await Users.findAll({attributes:['username'], where:{username: email}});
     await existing;
-    if (existing.length==0){
+    if(existing.length===0){
         if(password !== confPassword){
-            return res.status(400).json({msg:"Password and Confirm Password do not match."})
-        }
-        const salt=await bcrypt.genSalt();
+            return res.status(400).json({msg: "Password and Confirm Password do not match"});
+        } 
+        const salt = await bcrypt.genSalt();
         const hashPassword = await bcrypt.hash(password, salt);
         try {
-            await Users.creat({
-                name:name,
-                email:email,
-                password:hashPassword
+            await Users.create({
+                first_name: firstName,
+                last_name: lastName,
+                username: email,
+                password_hash: hashPassword
             });
-            res.status(200).json({msg:"Registration Successful!"})
+            res.status(200).json({msg: "Registration Successful"});
         } catch (error) {
-            console.log(error)    
+            console.log(error);
         }
     }else{
-        res.status(400).json({msg:"Email already exists."})
+        res.status(400).json({msg: "Failed. Email exists."});
     }
 }
-
+ 
 export const Login = async(req, res) => {
     try {
         const user = await Users.findAll({
             where:{
-                email: req.body.email
+                username: req.body.email
             }
         });
         const match = await bcrypt.compare(req.body.password, user[0].password);
         if(!match) return res.status(400).json({msg: "Wrong Password"});
-        const userId = user[0].id;
-        const name = user[0].name;
-        const email = user[0].email;
-        const accessToken = jwt.sign({userId, name, email}, process.env.ACCESS_TOKEN_SECRET,{
+        const userId = user[0].user_id;
+        const firstName = user[0].first_name;
+        const lastName = user[0].last_name;
+        const email = user[0].username;
+        const accessToken = jwt.sign({userId,firstName, lastName, email}, process.env.ACCESS_TOKEN_SECRET,{
             expiresIn: '15s'
         });
-        const refreshToken = jwt.sign({userId, name, email}, process.env.REFRESH_TOKEN_SECRET,{
-            expiresIn: '1d'
+        const refreshToken = jwt.sign({userId, firstName, lastName, email}, process.env.REFRESH_TOKEN_SECRET,{
+            expiresIn: '10d'
         });
         await Users.update({refresh_token: refreshToken},{
             where:{
-                id: userId
+                user_id: userId
             }
         });
         res.cookie('refreshToken', refreshToken,{
@@ -87,7 +89,7 @@ export const Logout = async(req, res) => {
     const userId = user[0].id;
     await Users.update({refresh_token: null},{
         where:{
-            id: userId
+            user_id: userId
         }
     });
     res.clearCookie('refreshToken');
