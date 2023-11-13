@@ -1,6 +1,6 @@
 import Users from "../models/UserModel.js";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import { generateTokens } from '../utils/tokenUtils.js';
  
 export const getUsers = async(req, res) => {
     try {
@@ -51,33 +51,32 @@ export const Login = async(req, res) => {
                 username: req.body.email 
             }
         });
+
         const match = await bcrypt.compare(req.body.password, user[0].password_hash);
         if(!match) return res.status(400).json({msg: "Wrong Password"});
-        const userId = user[0].user_id;
-        const firstName = user[0].first_name;
-        const lastName = user[0].last_name;
-        const email = user[0].username;
-        const accessToken = jwt.sign({userId,firstName, lastName, email}, process.env.ACCESS_TOKEN_SECRET,{
-            expiresIn: '15s'
-        });
-        const refreshToken = jwt.sign({userId, firstName, lastName, email}, process.env.REFRESH_TOKEN_SECRET,{
-            expiresIn: '10d'
-        });
-        await Users.update({refresh_token: refreshToken},{
-            where:{
-                user_id: userId
+
+        const { accessToken, refreshToken } = generateTokens();
+        await Users.update(
+            { refresh_token: refreshToken },
+            {
+                where: {
+                    user_id: user[0].user_id,
+                },
             }
-        });
-        res.cookie('refreshToken', refreshToken,{
+        );
+
+        res.cookie('refreshToken', refreshToken, {
             httpOnly: true,
-            maxAge: 24 * 60 * 60 * 1000
+            maxAge: 24 * 60 * 60 * 1000,
         });
-        res.json({ accessToken });
+
+        res.json({accessToken, firstName: user[0].first_name, lastName: user[0].last_name});
     } catch (error) {
-        console.log(error)
-        res.status(404).json({msg:"Email not found"});
+        console.log(error);
+        res.status(500).json({ msg: "Internal Server Error" });
     }
-}
+};
+
  
 export const Logout = async(req, res) => {
     const refreshToken = req.cookies.refreshToken;

@@ -4,27 +4,32 @@ import { useNavigate } from 'react-router-dom';
 import { apiEndpoints } from '../config/apiConfig.js';
 
 
-const Login = () => {
+const Login = ({ updateUser }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [msg, setMsg] = useState('');
     const navigate = useNavigate();
-    
+  
     const Auth = async (e) => {
-        e.preventDefault();
-        try {
-            await axios.post(apiEndpoints.login, {
-                email: email,
-                password: password
-            });
-            navigate("/");
-            
-        } catch (error) {
-            if (error.response) {
-                setMsg(error.response.data.msg);
-            }
+      e.preventDefault();
+      try {
+        const response = await axios.post(apiEndpoints.login, {
+          email: email,
+          password: password
+        });
+  
+        const userData = response.data;
+    
+        updateUser(userData);
+        console.log(userData)
+  
+        navigate("/detachedOut");
+      } catch (error) {
+        if (error.response) {
+          setMsg(error.response.data.msg);
         }
-    }
+      }
+    };
     return (
         <section>
             <div>
