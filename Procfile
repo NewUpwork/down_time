@@ -1,2 +1,2 @@
-web: cd downtimeapp && npm start
-api: cd endpoints && node index.js
+web: cd downtimeapp && npm install && npm run build && npm start
+api: cd endpoints && npm install && node index.js
