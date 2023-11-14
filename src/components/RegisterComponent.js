@@ -12,6 +12,7 @@ const Register = () => {
     const [confPassword, setConfPassword] = useState('');
     const [msg, setMsg] = useState('');
     const navigate = useNavigate();
+    
  
     const Register = async (e) => {
         e.preventDefault();
