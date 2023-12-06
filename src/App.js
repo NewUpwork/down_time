@@ -5,6 +5,10 @@ import WelcomePage from "./components/TempLandingComponent";
 import PrivacyPage from "./components/PrivacyPage";
 import CookiesConsent from "./components/CookieConsent";
 import UserContext from "./context/UserContext";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import LandingPage from "./components/Landingpage";
+import Layout from "./components/Layout"; // Import the Layout component
 import React, { useState } from "react";
 
 function App() {
@@ -19,9 +23,26 @@ function App() {
       <Router>
         <CookiesConsent />
         <Routes>
-          <Route exact path="/" element={<Login updateUser={updateUser} />} />
+          <Route
+            path="/"
+            element={
+              <Layout>
+                {/* LandingPage will have Header and Footer */}
+                <LandingPage />
+              </Layout>
+            }
+          />
+          <Route path="/login" element={<Login updateUser={updateUser} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/detachedOut" element={<WelcomePage />} />
+          <Route
+            path="/detachedOut"
+            element={
+              <Layout>
+                {/* WelcomePage will have Header and Footer */}
+                <WelcomePage />
+              </Layout>
+            }
+          />
           <Route path="/privacy" element={<PrivacyPage />} />
         </Routes>
       </Router>
