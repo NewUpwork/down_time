@@ -2,26 +2,28 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Login from "./components/SigninComponent";
 import Register from "./components/RegisterComponent";
 import WelcomePage from './components/TempLandingComponent';
-import UserContext from './context/UserContext';
-import React, { useState } from 'react';
+import PasswordRecoveryForm from './components/RecoverPasswordComponent';
+import React from 'react';
+import { UserProvider } from './context/UserContext';
+import UserAccount from './components/UserAccountComponent';
+import ApplyJobForm from './components/ApplyJobSubComponent';
 
 function App() {
-  const [user, setUser] = useState(null);
 
-  const updateUser = (userData) => {
-    setUser(userData);
-  };
 
   return (
-    <UserContext.Provider value={{ user, updateUser }}>
+    <UserProvider>
       <Router>
         <Routes>
-          <Route exact path="/" element={<Login updateUser={updateUser} />} />
+          <Route exact path="/" element={<Login/>} />
           <Route path="/register" element={<Register />} />
           <Route path="/detachedOut" element={<WelcomePage />} />
+          <Route path="/profile" element={<UserAccount />} />
+          <Route path="/password-recovery" element={<PasswordRecoveryForm />} />
+          <Route path='/apply' element={<ApplyJobForm/>}/>
         </Routes>
       </Router>
-    </UserContext.Provider>
+    </UserProvider>
   );
 }
 
