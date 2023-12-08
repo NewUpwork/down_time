@@ -1,30 +1,26 @@
 import React, { useState } from 'react'
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
 import { apiEndpoints } from '../config/apiConfig.js';
 
  
-const Register = () => {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+const JobPost= () => {
+
+    const [jobTitle, setjobTitle] = useState('');
+    const [jobDescription, setJobDescription] = useState('');
     const [confPassword, setConfPassword] = useState('');
     const [msg, setMsg] = useState('');
-    const navigate = useNavigate();
-    
+
  
-    const Register = async (e) => {
+    const Post = async (e) => {
         e.preventDefault();
             try {
                 await axios.post(apiEndpoints.users, {
-                    firstName: firstName,
-                    lastName: lastName,
-                    email: email,
-                    password: password,
+                    //firstName: firstName,
+                    //lastName: lastName,
+                    jobTitle: jobTitle,
+                    jobDescription: jobDescription,
                     confPassword: confPassword
                 });
-                navigate("/")
             } catch (error) {
                 if (error.response) {
                     console.log(error.response.data.msg);
@@ -39,27 +35,24 @@ const Register = () => {
                 <div>
                     <div>
                         <div>
-                            <form onSubmit={Register}>
+                            <form onSubmit={Post}>
                                 <p>{msg}</p>
                                 <div>
-                                    <label>Full Name</label>
+                                    <label>Task tilte</label>
                                     <div>
-                                        <input placeholder="Firt Name"
-                                            value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                                        <input placeholder="Last Name"
-                                            value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                                        <input placeholder="An overview tile for the task"
+                                            value={jobTitle} onChange={(e) => setjobTitle(e.target.value)} />
                                     </div>
                                 </div>
                                 <div>
-                                    <label>Email</label>
                                     <div>
-                                        <input type="text" className="input" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                        <input type="text" className="input" placeholder="Email" value={jobDescription} onChange={(e) => setJobDescription(e.target.value)} />
                                     </div>
                                 </div>
                                 <div>
                                     <label>Password</label>
                                     <div>
-                                        <input type="password" className="input" placeholder="******" value={password} onChange={(e) => setPassword(e.target.value)} />
+                                     
                                     </div>
                                 </div>
                                 <div>
@@ -69,7 +62,7 @@ const Register = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <button>Register</button>
+                                    <button>Post</button>
                                 </div>
                             </form>
                         </div>
@@ -80,4 +73,4 @@ const Register = () => {
     )
 }
  
-export default Register
+export default JobPost
