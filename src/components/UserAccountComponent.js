@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import axios from 'axios'; 
 import { useUserContext } from '../context/UserContext';
 import { useNavigate } from 'react-router-dom';
+import { apiEndpoints } from '../config/apiConfig.js';
 
 const UserAccount = () => {
   const { user, updateUser } = useUserContext();
@@ -25,6 +26,18 @@ const UserAccount = () => {
       // Handle error
     }
   };
+  const handleLogout = async () => {
+    try {
+      await axios.post(apiEndpoints.logout, user.accessToken);
+      updateUser(null);
+      localStorage.removeItem('userData'); 
+      navigate("/"); // Navigate to the login page or any other page you desire
+      console.log('Logout successful');
+      // Perform any additional actions after successful logout
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };  
 
   return (
     <div className="profile-card">
@@ -39,9 +52,13 @@ const UserAccount = () => {
       ))}
 
       {/* Button to delete user */}
+      <button onClick={handleLogout}>Logout</button>
       <button onClick={deleteUser}>Delete Account</button>
     </div>
+    
   );
+  
+  
 }
 
 export default UserAccount;

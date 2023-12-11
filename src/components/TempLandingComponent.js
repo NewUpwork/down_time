@@ -19,17 +19,7 @@ const WelcomePage = () => {
   }, [updateUser]);
 
 
-  const handleLogout = async () => {
-    try {
-      await axios.post(apiEndpoints.logout, user.accessToken);
-      updateUser(null);
-      localStorage.removeItem('userData'); 
-      navigate("/")
-    } catch (error) {
-      console.error('Logout failed:', error);
-      console.log( user.accessToken)
-    }
-  };
+
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
@@ -41,7 +31,7 @@ const WelcomePage = () => {
           <p>Stay tuned for more updates!</p>
           {user.role === 'client' && <JobPost />}
           {user.role === 'freelancer' && <JobsFeed />}
-          <button onClick={handleLogout}>Logout</button>
+      
 
         </>
       ) : (

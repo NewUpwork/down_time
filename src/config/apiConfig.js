@@ -2,8 +2,6 @@
 
 const apiBaseUrl = 'http://localhost:5000';
 //'https://downtime-endpoints-65f5397a1113.herokuapp.com';
-//'http://localhost:5000';
-//'https://downtime-endpoints-65f5397a1113.herokuapp.com';
 
 export const apiEndpoints = {
   login: `${apiBaseUrl}/login`,
