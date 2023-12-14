@@ -1,0 +1,86 @@
+body {
+    background-color: #057fa8fd;
+
+}
+
+.wrapper-landingpage {
+    width: 45%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  
+  .first-element{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #057fa8eb; /* Set your desired background color */
+    padding: 20px;
+  }
+  .second-element {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #72CCD7; /* Set your desired background color */
+    padding: 20px;
+    
+  }
+  
+  
+  .intro-text{
+    color: #ffffff;
+    font-size: 35px;
+  }
+  .search-bar-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .search-bar-landingpage{
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: none;
+   
+  }
+  
+  .search-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  .element-image {
+    width: 50%; /* Adjust as needed */
+    border-radius: 8px; /* Add border radius for rounded corners */
+  }
+  
+  .text-container {
+    flex: 1;
+    padding: 0 20px;
+    font-size: 30px;
+  
+    
+  }
+  
+  /* Add additional styling as needed */
+  
+    
+    /* Add additional styling as needed */
+    
+    
+    /* Add additional styling as needed */
+    
+  
+  /* Register.css */

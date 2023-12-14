@@ -14,7 +14,7 @@ const Login = () => {
 
     useEffect(() => {
       if (user) {
-        navigate('/');
+        navigate('/home');
       }
     }, [user, navigate]);
     
@@ -38,7 +38,7 @@ const Login = () => {
         const userData = response.data;
         updateUser(userData);
         console.log(userData);
-        navigate("/");
+        navigate("/home");
 
       } catch (error) {
     if (error.response) {

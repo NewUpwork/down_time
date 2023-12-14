@@ -24,8 +24,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/password-recovery" element={<PasswordRecoveryForm />}/>
           <Route path='/apply' element={<Layout><ApplyJobForm/></Layout>}/>
-          <Route path="/home" element={  <Layout>  <LandingPage /> </Layout>}/>
-          <Route path="/" element={ <Layout><WelcomePage /></Layout>}/>
+          <Route path="/" element={  <Layout>  <LandingPage /> </Layout>}/>
+          <Route path="/home" element={ <Layout><WelcomePage /></Layout>}/>
           <Route path="/privacy" element={<PrivacyPage />} />
         </Routes>
       </Router>
