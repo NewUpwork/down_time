@@ -34,7 +34,7 @@ const Register = () => {
     }
 
     try {
-      await axios.post(apiEndpoints.register, {
+      await axios.post(apiEndpoints.users, {
         firstName: firstName,
         lastName: lastName,
         email: email,

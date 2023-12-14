@@ -7,12 +7,9 @@ import './styles/landing.css';
 
 
 const CustomComponent = () => {
-  const bodyStyle = {
-    backgroundColor: '#057fa8fd',
-  };
-
   const { user, updateUser } = useUserContext();
   const navigate = useNavigate();
+
   useEffect(() => {
     if (!user) {
       navigate('/');
@@ -25,12 +22,11 @@ const CustomComponent = () => {
     }
   }, [user, updateUser, navigate]);
 
-
   return (
     <div className='wrapper-landingpage'>
       <style>{`
         body {
-          background-color: unset; /* Reset body background color */
+          background-color: #057fa8fd;
         }
       `}</style>
 
@@ -45,11 +41,6 @@ const CustomComponent = () => {
           <p>"Elevate your projects with Downtime, the ultimate freelancing destination designed for simplicity, quality, and success."</p>
         </div>
       </div>
-      <style>{`
-        body {
-          ${bodyStyle}
-        }
-      `}</style>
     </div>
   );
 };
