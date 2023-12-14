@@ -12,16 +12,15 @@ const JobsFeed = () => {
   const [selectedJob, setSelectedJob] = useState(null);
 
   useEffect(() => {
-    // Fetch jobs data from the server
     const fetchJobs = async () => {
       try {
         const response = await axios.get(apiEndpoints.feed);
         setJobs(response.data);
       } catch (error) {
         console.error('Error fetching jobs:', error);
-        // Handle error or redirect to login if not logged in
+
         if (error.response && error.response.status === 401) {
-          navigate('/login'); // Redirect to login page if not logged in
+          navigate('/login');
         }
       }
     };
@@ -31,27 +30,27 @@ const JobsFeed = () => {
     }
   }, [user, navigate]);
 
+  useEffect(() => {
+    if (selectedJob !== null) {
+      navigate('/apply', { state: { jobId: selectedJob } });
+    }
+  }, [selectedJob, navigate]);
+
   const handleApplyClick = (jobId) => {
     setSelectedJob(jobId);
-    navigate('/apply');
   };
 
   return (
     <div>
       <h2>Jobs Feed</h2>
-      {/* Render the jobs here */}
       {jobs.map((job) => (
-        <div key="">
+        <div key={job.job_id}>
           <h3>{job.title}</h3>
           <p>{job.description}</p>
-          {/* Render other job details */}
           <button onClick={() => handleApplyClick(job.job_id)}>Apply</button>
         </div>
       ))}
-         {selectedJob && (
-        <ApplyJobForm jobId={selectedJob} />
-      )}
-  
+      {selectedJob && <ApplyJobForm jobId={selectedJob}/> }
     </div>
   );
 };

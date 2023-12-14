@@ -2,54 +2,69 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { apiEndpoints } from '../config/apiConfig.js';
 import { useUserContext } from '../context/UserContext';
+import './styles/applyPage.css';
+import SelectedJob from './SelectedJob.js';
 
-const ApplyJobForm = ({ jobId = 1, onApplySuccess }) => {
-  const [coverLetter, setCoverLetter] = useState('');
-  const [statusMessage, setStatusMessage] = useState(''); // New state to hold status message
+const ApplyJobForm = ({ jobId, onApplySuccess }) => {
+  const [statusMessage, setStatusMessage] = useState('');
   const { user } = useUserContext();
+  const [attachment, setAttachment] = useState(null);
+  const [coverLetter, setCoverLetter] = useState('');
+
+
 
   const handleApply = async () => {
     try {
-      const user_id = user.userId;
-
       const response = await axios.post(apiEndpoints.applyJob, {
-        user_id: user_id,
-        job_id: jobId,
-        cover_letter: coverLetter,
+        userId: user.userId,
+        jobId: jobId,
+        coverLetter: coverLetter,
+        attachment: attachment
       });
 
-      // Check the status code and set the appropriate status message
       if (response.status === 200) {
         setStatusMessage('Application submitted successfully');
-        // If successful, trigger the onApplySuccess callback (you can customize this callback)
         if (typeof onApplySuccess === 'function') {
           onApplySuccess();
         }
       } else {
-        setStatusMessage(response.data.msg); // Display the message from the server
+        setStatusMessage(response.data.msg);
       }
     } catch (error) {
       console.error('Error applying for the job:', error);
-      setStatusMessage('An error occurred. Please try again.'); // Display a generic error message
+      setStatusMessage('An error occurred. Please try again.');
     }
   };
 
   return (
-    <div>
-      <h3>Apply for Job</h3>
-      <label>
-        Cover Letter:
-        <textarea
-          value={coverLetter}
-          onChange={(e) => setCoverLetter(e.target.value)}
-        />
-      </label>
-      <button onClick={handleApply}>Submit Application</button>
-
-      {/* Display the status message to the user */}
-      {statusMessage && <p>{statusMessage}</p>}
-    </div>
+    <main className='apply-page'>
+      <section className='selceted_job'>
+      <SelectedJob jobId={jobId} />
+      </section>
+      <section className='application form'>
+        <div>
+          <h3>Apply for Job</h3>
+          <label>
+            Cover Letter:
+            <textarea
+              value={coverLetter}
+              onChange={(e) => setCoverLetter(e.target.value)}
+            />
+          </label>
+          <label>
+            Attach File:
+            <input
+              type="file"
+              onChange={(e) => setAttachment(e.target.files[0])}
+            />
+          </label>
+          <button onClick={handleApply}>Submit Application</button>
+          {statusMessage && <p>{statusMessage}</p>}
+        </div>
+      </section>
+    </main>
   );
-};
+  
+}  
 
 export default ApplyJobForm;

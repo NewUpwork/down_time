@@ -1,5 +1,3 @@
-// apiConfig.js
-
 const apiBaseUrl = 'http://localhost:5000';
 //'https://downtime-endpoints-65f5397a1113.herokuapp.com';
 
@@ -10,5 +8,9 @@ export const apiEndpoints = {
   logout:`${apiBaseUrl}/logout`,
   feed:`${apiBaseUrl}/jobs-feed`,
   applyJob:`${apiBaseUrl}/apply-job`,
+  freelancers: `${apiBaseUrl}/freelancers`,
+  appliedJobs: `${apiBaseUrl}/applied-jobs/:userId`,
+  jobPost:`${apiBaseUrl}/post-job`,
+  oneJob: `${apiBaseUrl}/get-one-job/:jobId`,
 
 };

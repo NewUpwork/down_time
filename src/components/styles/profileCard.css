@@ -1,0 +1,30 @@
+.profile-card {
+  position: fixed;
+  top: 70px;
+  right: 30px;
+  background-color: #54595d;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  width: 300px; 
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info {
+  margin-bottom: 8px;
+}
+
+.property {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.buttons {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+}

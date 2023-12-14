@@ -1,0 +1,382 @@
+/* Header.module.css */
+/* header.css */
+.header-container {
+    background-color: #057EA8;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+    
+}
+
+.center-section {
+    flex: 4;
+    text-align: right;
+}
+
+.right-section {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.search-bar {
+    padding: 5px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.button {
+    background-color: #0896c5;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-left: 10px; /* Adjust the spacing between buttons if needed */
+    cursor: pointer;
+}
+.button1 {
+    background-color: #fdfdfd;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-left: 10px; /* Adjust the spacing between buttons if needed */
+    cursor: pointer;
+}
+
+
+/* Footer.module.css */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #057EA8;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  z-index: 2;
+}
+
+/* landing-page.css */
+/* styles.css */
+
+/* Existing styles... */
+
+.wrapper-landingpage {
+  width: 1000px;
+  margin: auto;
+ 
+  
+   /* 100% of the viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.background-color-landingpage{
+  background-color: #057fa8fd;
+}
+
+.first-element{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #057fa8eb; /* Set your desired background color */
+  padding: 20px;
+}
+.second-element {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #72CCD7; /* Set your desired background color */
+  padding: 20px;
+  
+}
+
+
+.intro-text{
+  color: #ffffff;
+  font-size: 35px;
+}
+.search-bar-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.search-bar-landingpage{
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  border: none;
+ 
+}
+
+.search-button {
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.element-image {
+  width: 50%; /* Adjust as needed */
+  border-radius: 8px; /* Add border radius for rounded corners */
+}
+
+.text-container {
+  flex: 1;
+  padding: 0 20px;
+  font-size: 30px;
+
+  
+}
+
+/* Add additional styling as needed */
+
+  
+  /* Add additional styling as needed */
+  
+  
+  /* Add additional styling as needed */
+  
+
+/* Register.css */
+
+.regandsignuplogo{
+    width: 300px;
+    height: auto;
+    
+}
+
+.wrapper-main {
+    width: 1000px;
+    margin: auto;
+    background-color: #057EA8;
+    
+    height: 100vh; /* 100% of the viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+.section-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+
+  }
+  
+  .left-section-content {
+    
+    
+    text-align: center;
+   
+    background-color: #E6F2F2;
+  }
+  
+  .right-section-form {
+   
+    width: 100%;
+    
+    
+
+  
+  }
+  
+  .form-container {
+    padding: 20px;
+   
+    width: auto;
+    background-color: #E6F2F2; /* Set background color */
+  }
+  
+  .form-container label {
+    display: flex;
+    margin: 10px 0;
+    
+    
+  }
+  
+  .form-container input {
+    
+    width: calc(70% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #06826b; /* Set input border color */
+    border-radius: 5px;
+  }
+  
+  .form-container button {
+    background-color: #057EA8; /* Set button background color */
+    color: white;
+    border: none;
+
+    margin: auto;
+    padding: 10px 20px;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  
+  .form-image{
+    
+    width:100%;
+    height: auto;
+    background-color: #6198ab;
+
+ 
+    
+
+  }
+  .already-registered {
+    text-align: center;
+  }
+  
+  .already-registered p {
+    margin: 0; /* Remove default margin */
+  }
+  
+  .already-registered a {
+    color: #057EA8; /* Set link color */
+    text-decoration: none; /* Remove default underline */
+    font-weight: bold; /* Make the link bold */
+  }
+  
+
+  .register-page{
+    background-color: #057EA8;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /*SiginPage*/
+
+  .signin-wrapper-main {
+    width: 1000px;
+    margin: auto;
+    background-color: #057EA8;
+    
+    height: 100vh; /* 100% of the viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+.signin-section-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+
+  }
+  
+  .signin-left-section-content {
+    
+    
+    text-align: center;
+   
+    background-color: #E6F2F2;
+  }
+  
+  .signin-right-section-form {
+   
+    width: 100%;
+    
+    
+
+  
+  }
+  
+  .signin-form-container {
+    padding: 20px;
+   
+    width: auto;
+    height: 500px;
+    background-color: #E6F2F2; /* Set background color */
+  }
+  
+  .signin-form-container label {
+    display: flex;
+    margin: 10px 0;
+    
+    
+  }
+  
+  .signin-form-container input {
+    
+    width: calc(70% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #06826b; /* Set input border color */
+    border-radius: 5px;
+  }
+  
+  .signin-form-container button {
+    background-color: #057EA8; /* Set button background color */
+    color: white;
+    border: none;
+
+    margin: auto;
+    padding: 10px 20px;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  
+  .signin-form-image{
+    
+    width:100%;
+    height: auto;
+    background-color: #6198ab;
+
+ 
+    
+
+  }
+  .signin-already-registered {
+    text-align: center;
+  }
+  
+  .signin-already-registered p {
+    margin: 0; /* Remove default margin */
+  }
+  
+  .signin-already-registered a {
+    color: #057EA8; /* Set link color */
+    text-decoration: none; /* Remove default underline */
+    font-weight: bold; /* Make the link bold */
+  }
+
+  .not-registered {
+    position: relative;
+    top: 100px;
+
+  }
+  
+
+  .signin{
+    background-color: #057EA8;
+    margin: 0;
+    padding: 0;
+  }
+

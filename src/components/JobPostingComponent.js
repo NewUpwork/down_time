@@ -1,25 +1,30 @@
 import React, { useState } from 'react'
 import axios from "axios";
 import { apiEndpoints } from '../config/apiConfig.js';
+import { useUserContext } from '../context/UserContext.js';
 
  
 const JobPost= () => {
-
-    const [jobTitle, setjobTitle] = useState('');
+    const { user}  = useUserContext();
+    const [jobTitle, setJobTitle] = useState('');
     const [jobDescription, setJobDescription] = useState('');
-    const [confPassword, setConfPassword] = useState('');
+    const [skills, setSkills] = useState('');
+    const [budget, setBudget] = useState('');
+    const [deadline, setDeadline] = useState('');
+    const [location, setLocation] = useState('');
     const [msg, setMsg] = useState('');
-
  
     const Post = async (e) => {
         e.preventDefault();
             try {
-                await axios.post(apiEndpoints.users, {
-                    //firstName: firstName,
-                    //lastName: lastName,
-                    jobTitle: jobTitle,
-                    jobDescription: jobDescription,
-                    confPassword: confPassword
+                await axios.post(apiEndpoints.jobPost, {
+                    userId: user.userId,
+                    title: jobTitle,
+                    description: jobDescription,
+                    skills: skills,
+                    budget: budget,
+                    deadline: deadline,
+                    location: location,
                 });
             } catch (error) {
                 if (error.response) {
@@ -28,6 +33,21 @@ const JobPost= () => {
                 }
             }
     }
+
+
+   /* const formatCurrencyInput = (input) => {
+        const numericValue = input.replace(/[^0-9.]/g, '');
+        const numericAmount = parseFloat(numericValue);
+        if (!isNaN(numericAmount)) {
+            const formattedCurrency = numericAmount.toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'EUR', 
+                minimumFractionDigits: 2,
+            });
+            return formattedCurrency;
+        }
+        return input;
+    };*/
  
     return (
         <section>
@@ -35,34 +55,75 @@ const JobPost= () => {
                 <div>
                     <div>
                         <div>
+                            <h1>Initiate a task and welcome submissions from applicants</h1>
                             <form onSubmit={Post}>
                                 <p>{msg}</p>
                                 <div>
-                                    <label>Task tilte</label>
+                                    <label>Task title</label>
                                     <div>
-                                        <input placeholder="An overview tile for the task"
-                                            value={jobTitle} onChange={(e) => setjobTitle(e.target.value)} />
+                                        <input
+                                            type="text"
+                                            placeholder="Write an overview title for the task"
+                                            value={jobTitle}
+                                            onChange={(e) => setJobTitle(e.target.value)}
+                                        />
                                     </div>
                                 </div>
                                 <div>
+                                    <label>Task description</label>
                                     <div>
-                                        <input type="text" className="input" placeholder="Email" value={jobDescription} onChange={(e) => setJobDescription(e.target.value)} />
+                                        <textarea
+                                            placeholder="Describe the task"
+                                            value={jobDescription}
+                                            onChange={(e) => setJobDescription(e.target.value)}
+                                        />
                                     </div>
                                 </div>
                                 <div>
-                                    <label>Password</label>
+                                    <label>Skills and Competencies</label>
                                     <div>
-                                     
+                                        <input
+                                            type="text"
+                                            placeholder="List the required skills and competencies"
+                                            value={skills}
+                                            onChange={(e) => setSkills(e.target.value)}
+                                        />
                                     </div>
                                 </div>
                                 <div>
-                                    <label>Confirm Password</label>
+                                    <label>Budget</label>
                                     <div>
-                                        <input type="password" className="input" placeholder="******" value={confPassword} onChange={(e) => setConfPassword(e.target.value)} />
+                                    <input
+                                            type="text"
+                                            placeholder="Specify the budget"
+                                            value={budget}
+                                            onChange={(e) => setBudget(e.target.value)}
+                                        />
                                     </div>
                                 </div>
                                 <div>
-                                    <button>Post</button>
+                                    <label>Deadline</label>
+                                    <div>
+                                        <input
+                                            type="date"
+                                            value={deadline}
+                                            onChange={(e) => setDeadline(e.target.value || 'open')}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Location</label>
+                                    <div>
+                                        <input
+                                            type="text"
+                                            placeholder="Specify the location"
+                                            value={location}
+                                            onChange={(e) => setLocation(e.target.value || 'Any')}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="submit">Post</button>
                                 </div>
                             </form>
                         </div>
@@ -70,7 +131,7 @@ const JobPost= () => {
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
  
 export default JobPost
