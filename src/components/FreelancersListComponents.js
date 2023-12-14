@@ -4,26 +4,27 @@ import { apiEndpoints } from '../config/apiConfig.js';
 import { useUserContext } from '../context/UserContext.js';
 import { useNavigate } from 'react-router-dom';
 import defaultProfilePicture from '../assets/images/User-avatar.svg';
+import useFreelancerStore from '../context/freelancerStore.js';
 
 const FreelancersList = () => {
   const { user } = useUserContext();
   const navigate = useNavigate();
   const [freelancers, setFreelancers] = useState([]);
-  const [selectedFreelancer, setSelectedFreelancers] = useState(null);
-
+  const { setFreelancerId } = useFreelancerStore();
+  
   
 
   useEffect(() => {
-    // Fetch jobs data from the server
+
     const fetchFreelancers = async () => {
       try {
         const response = await axios.get(apiEndpoints.freelancers);
         setFreelancers(response.data);
       } catch (error) {
         console.error('Error fetching jobs:', error);
-        // Handle error or redirect to login if not logged in
+     
         if (error.response && error.response.status === 401) {
-          navigate('/login'); // Redirect to login page if not logged in
+          navigate('/login'); 
         }
       }
     };
@@ -33,9 +34,11 @@ const FreelancersList = () => {
     }
   }, [user, navigate]);
 
-  const handleApplyClick = (jobId) => {
-    setSelectedFreelancers(jobId);
-    navigate('/apply');
+
+
+  const handleInviteClick = (freelancerId) => {
+    setFreelancerId(freelancerId);
+    navigate('/invite')
   };
 
   return (
@@ -52,8 +55,7 @@ const FreelancersList = () => {
             <h3>{freelancer.full_name}</h3>
             <h4>{freelancer.skills}</h4>
             <p>{freelancer.bio}</p>
-    
-            <button onClick={() => handleApplyClick(freelancer.user_id)}>Contact</button>
+            <button onClick={() => handleInviteClick(freelancer.freelancer_id)}>Invite</button>
           </div>
         </div>
       ))}

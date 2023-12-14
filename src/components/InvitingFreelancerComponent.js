@@ -3,13 +3,14 @@ import axios from 'axios';
 import { apiEndpoints } from '../config/apiConfig.js';
 import { useUserContext } from '../context/UserContext';
 import './styles/applyPage.css';
-import SelectedJob from './SelectedJob.js';
+import SelectedFreelancer from './SelectedFreelancer.js';
 
-const ApplyJobForm = ({ jobId, onApplySuccess }) => {
+
+const InvitingFreelancer = ({ freelancerId, onApplySuccess }) => {
   const [statusMessage, setStatusMessage] = useState('');
   const { user } = useUserContext();
   const [attachment, setAttachment] = useState(null);
-  const [coverLetter, setCoverLetter] = useState('');
+  const [taskDescription, setTaskDescription] = useState('');
 
 
 
@@ -17,8 +18,8 @@ const ApplyJobForm = ({ jobId, onApplySuccess }) => {
     try {
       const response = await axios.post(apiEndpoints.applyJob, {
         userId: user.userId,
-        jobId: jobId,
-        coverLetter: coverLetter,
+        freelancerId: freelancerId,
+        taskDescription: taskDescription,
         attachment: attachment
       });
 
@@ -39,32 +40,32 @@ const ApplyJobForm = ({ jobId, onApplySuccess }) => {
   return (
     <main className='apply-page'>
       <section className='selceted_job'>
-      <SelectedJob />
+        <SelectedFreelancer/>
       </section>
       <section className='application form'>
         <div>
-          <h3>Apply for Job</h3>
+          <h3>Invite to a Task</h3>
           <label>
-            Cover Letter:
+            Task description:
             <textarea
-              value={coverLetter}
-              onChange={(e) => setCoverLetter(e.target.value)}
+              value={taskDescription}
+              onChange={(e) => setTaskDescription(e.target.value)}
             />
           </label>
           <label>
-            Attach File:
+            Attach project File:
             <input
               type="file"
               onChange={(e) => setAttachment(e.target.files[0])}
             />
           </label>
-          <button onClick={handleApply}>Submit Application</button>
+          <button onClick={handleApply}>Send Invitation</button>
           {statusMessage && <p>{statusMessage}</p>}
         </div>
       </section>
     </main>
   );
   
-}
+}  
 
-export default ApplyJobForm;
+export default InvitingFreelancer;

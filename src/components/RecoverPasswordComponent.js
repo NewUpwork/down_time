@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { apiEndpoints } from '../config/apiConfig.js';
 import axios from 'axios';
+import './styles/passwordRecoveryForm.css'; 
 
 const PasswordRecoveryForm = () => {
-  const navigate = useNavigate();
   const [userEmail, setUserEmail] = useState('');
 
   const handlePasswordRecovery = async () => {
@@ -14,18 +13,15 @@ const PasswordRecoveryForm = () => {
       });
 
       console.log(response.data.message);
-      // You may also display a success message to the user
 
-      // Assuming you want to navigate to a success page after recovery
-      navigate('/password-recovery-success');
+
     } catch (error) {
       console.error('Error:', error.response.data.error);
-      // Handle the error, perhaps display an error message to the user
     }
   };
 
   return (
-    <div>
+    <div className='recovery-form'>
       <label htmlFor="email">Email:</label>
       <input
         type="email"

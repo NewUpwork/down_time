@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Cookies from "js-cookie"; // npm package to handle cookies
+import Cookies from "js-cookie"; 
+import './styles/cookies.css'; 
 
 const CookiesConsent = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -14,7 +15,6 @@ const CookiesConsent = () => {
   const handleAccept = () => {
     Cookies.set("user-consent", "accepted", { expires: 1 });
     setShowPopup(false);
-    // Additional code to inform backend, if necessary
   };
 
   if (!showPopup) return null;

@@ -3,13 +3,13 @@ import axios from 'axios';
 import { apiEndpoints } from '../config/apiConfig.js';
 import { useUserContext } from '../context/UserContext.js';
 import { useNavigate } from 'react-router-dom';
-import ApplyJobForm from './ApplyJobSubComponent.js';
+import useJobStore from '../context/jobStore.js';
 
 const JobsFeed = () => {
   const { user } = useUserContext();
   const navigate = useNavigate();
+  const { setJobId } = useJobStore();
   const [jobs, setJobs] = useState([]);
-  const [selectedJob, setSelectedJob] = useState(null);
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -30,14 +30,9 @@ const JobsFeed = () => {
     }
   }, [user, navigate]);
 
-  useEffect(() => {
-    if (selectedJob !== null) {
-      navigate('/apply', { state: { jobId: selectedJob } });
-    }
-  }, [selectedJob, navigate]);
-
   const handleApplyClick = (jobId) => {
-    setSelectedJob(jobId);
+    setJobId(jobId);
+    navigate('/apply')
   };
 
   return (
@@ -50,7 +45,6 @@ const JobsFeed = () => {
           <button onClick={() => handleApplyClick(job.job_id)}>Apply</button>
         </div>
       ))}
-      {selectedJob && <ApplyJobForm jobId={selectedJob}/> }
     </div>
   );
 };

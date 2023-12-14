@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <div className="header-container">
       <div className="left-section">
-        <Link to="/">
+        <Link to="/home">
           <h1>
             <img src={yourLogo} alt="Downtime Logo" className="logo" />
           </h1>
