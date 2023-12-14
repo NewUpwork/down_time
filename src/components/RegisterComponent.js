@@ -8,35 +8,8 @@ import yourLogo from './images/Regandsignup.svg'
 import { useUserContext } from '../context/UserContext.js';
 
 
-const Register = () => {
 
-    /*const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confPassword, setConfPassword] = useState('');
-    const [msg, setMsg] = useState('');
-    const navigate = useNavigate();
-    
- 
-    const Register = async (e) => {
-        e.preventDefault();
-            try {
-                await axios.post(apiEndpoints.users, {
-                    firstName: firstName,
-                    lastName: lastName,
-                    email: email,
-                    password: password,
-                    confPassword: confPassword
-                });
-                navigate("/")
-            } catch (error) {
-                if (error.response) {
-                    console.log(error.response.data.msg);
-                    setMsg(error.response.data.msg);
-                }
-            }
-*/
+const Register = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -52,13 +25,14 @@ const Register = () => {
     }
   }, [user, navigate]);
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!firstName.trim() || !lastName.trim() || !email.trim() || !password.trim() || !confPassword.trim()) {
       setMsg('Please fill in all fields.');
       return;
     }
+
     try {
       await axios.post(apiEndpoints.register, {
         firstName: firstName,
@@ -73,9 +47,9 @@ const Register = () => {
         console.log(error.response.data.msg);
         setMsg(error.response.data.msg);
       }
-
     }
   };
+
 
   return (
     <section className='register-page'>
@@ -142,7 +116,6 @@ const Register = () => {
                   <p>Already a user? <Link to="/login">Login here</Link></p>
                 </div>
                
-              
             </div>
             <div>
               <button className="button" type="submit">
