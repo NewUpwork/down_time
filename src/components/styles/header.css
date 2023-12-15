@@ -1,5 +1,6 @@
 /* Header.module.css */
 /* header.css */
+
 .header-container {
     background-color: #057EA8;
     color: white;
@@ -57,236 +58,107 @@
 
 
 /* Footer.module.css */
+/* Add this CSS to your stylesheet */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f2f2f2; /* Set your desired background color */
+}
+
+.content-wrapper {
+  flex-grow: 1;
+  padding: 20px;
+  overflow: auto; /* Add this to enable scrolling if content overflows */
+}
+
 footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
   background-color: #057EA8;
-  color: white;
-  padding: 10px;
+  color: #ffffff;
+  padding: 20px 0;
   text-align: center;
-  z-index: 2;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-logo {
+  flex-basis: 100%;
+  margin-bottom: 20px;
+}
+
+.footer-contact,
+.footer-social,
+.footer-newsletter {
+  flex-basis: calc(33.33% - 20px);
+  text-align: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-newsletter {
+  flex-basis: calc(33.33% - 20px);
+  text-align: center;
+  margin-right: 0;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Style for the social media icons (adjust as needed) */
+.footer-social ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-social li {
+  margin-bottom: 10px;
+}
+
+.footer-social a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+/* Style for the subscribe form (adjust as needed) */
+.footer-newsletter form {
+  display: flex;
+}
+
+.footer-newsletter input[type="email"] {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.footer-newsletter button {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.footer-newsletter button:hover {
+  background-color: #0056b3;
 }
 
 
 
-.regandsignuplogo{
-    width: 300px;
-    height: auto;
-    
-}
-
-.wrapper-main {
-    width: 1000px;
-    margin: auto;
-    background-color: #057EA8;
-    
-    height: 100vh; /* 100% of the viewport height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
-
-.section-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: row-reverse;
-
-  }
-  
-  .left-section-content {
-    
-    
-    text-align: center;
-   
-    background-color: #E6F2F2;
-  }
-  
-  .right-section-form {
-   
-    width: 100%;
-    
-    
-
-  
-  }
-  
-  .form-container {
-    padding: 20px;
-   
-    width: auto;
-    background-color: #E6F2F2; /* Set background color */
-  }
-  
-  .form-container label {
-    display: flex;
-    margin: 10px 0;
-    
-    
-  }
-  
-  .form-container input {
-    
-    width: calc(70% - 20px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #06826b; /* Set input border color */
-    border-radius: 5px;
-  }
-  
-  .form-container button {
-    background-color: #057EA8; /* Set button background color */
-    color: white;
-    border: none;
-
-    margin: auto;
-    padding: 10px 20px;
-    border-radius: 2px;
-    cursor: pointer;
-  }
-  
-  .form-image{
-    
-    width:100%;
-    height: auto;
-    background-color: #6198ab;
 
  
-    
-
-  }
-  .already-registered {
-    text-align: center;
-  }
-  
-  .already-registered p {
-    margin: 0; /* Remove default margin */
-  }
-  
-  .already-registered a {
-    color: #057EA8; /* Set link color */
-    text-decoration: none; /* Remove default underline */
-    font-weight: bold; /* Make the link bold */
-  }
-  
-
-  .register-page{
-    background-color: #057EA8;
-    margin: 0;
-    padding: 0;
-  }
-
-
-  /*SiginPage*/
-
-  .signin-wrapper-main {
-    width: 1000px;
-    margin: auto;
-    background-color: #057EA8;
-    
-    height: 100vh; /* 100% of the viewport height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
-
-.signin-section-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: row-reverse;
-
-  }
-  
-  .signin-left-section-content {
-    
-    
-    text-align: center;
-   
-    background-color: #E6F2F2;
-  }
-  
-  .signin-right-section-form {
-   
-    width: 100%;
-    
-    
-
-  
-  }
-  
-  .signin-form-container {
-    padding: 20px;
-   
-    width: auto;
-    height: 500px;
-    background-color: #E6F2F2; /* Set background color */
-  }
-  
-  .signin-form-container label {
-    display: flex;
-    margin: 10px 0;
-    
-    
-  }
-  
-  .signin-form-container input {
-    
-    width: calc(70% - 20px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #06826b; /* Set input border color */
-    border-radius: 5px;
-  }
-  
-  .signin-form-container button {
-    background-color: #057EA8; /* Set button background color */
-    color: white;
-    border: none;
-
-    margin: auto;
-    padding: 10px 20px;
-    border-radius: 2px;
-    cursor: pointer;
-  }
-  
-  .signin-form-image{
-    
-    width:100%;
-    height: auto;
-    background-color: #6198ab;
-
- 
-    
-
-  }
-  .signin-already-registered {
-    text-align: center;
-  }
-  
-  .signin-already-registered p {
-    margin: 0; /* Remove default margin */
-  }
-  
-  .signin-already-registered a {
-    color: #057EA8; /* Set link color */
-    text-decoration: none; /* Remove default underline */
-    font-weight: bold; /* Make the link bold */
-  }
-
-  .not-registered {
-    position: relative;
-    top: 100px;
-
-  }
-  
-
-  .signin{
-    background-color: #057EA8;
-    margin: 0;
-    padding: 0;
-  }
 
