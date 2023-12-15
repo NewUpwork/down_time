@@ -28,7 +28,7 @@ function App() {
           <Route path="/invite" element={<Layout><InvitingFreelancer/></Layout>}/>
           <Route path="/" element={  <Layout>  <LandingPage /> </Layout>}/>
           <Route path="/home" element={ <Layout><WelcomePage /></Layout>}/>
-          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/privacy" element={<Layout><PrivacyPage /></Layout>} />
         </Routes>
       </Router>
     </UserProvider>

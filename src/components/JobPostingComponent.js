@@ -4,8 +4,8 @@ import { apiEndpoints } from '../config/apiConfig.js';
 import { useUserContext } from '../context/UserContext.js';
 
  
-const JobPost= () => {
-    const { user}  = useUserContext();
+const JobPost = () => {
+    const { user } = useUserContext();
     const [jobTitle, setJobTitle] = useState('');
     const [jobDescription, setJobDescription] = useState('');
     const [skills, setSkills] = useState('');
@@ -13,42 +13,45 @@ const JobPost= () => {
     const [deadline, setDeadline] = useState('');
     const [location, setLocation] = useState('');
     const [msg, setMsg] = useState('');
- 
+    const [isPostSuccessful, setIsPostSuccessful] = useState(false);
+  
     const Post = async (e) => {
         e.preventDefault();
-            try {
-                await axios.post(apiEndpoints.jobPost, {
-                    userId: user.userId,
-                    title: jobTitle,
-                    description: jobDescription,
-                    skills: skills,
-                    budget: budget,
-                    deadline: deadline,
-                    location: location,
-                });
-            } catch (error) {
-                if (error.response) {
-                    console.log(error.response.data.msg);
-                    setMsg(error.response.data.msg);
-                }
-            }
-    }
-
-
-   /* const formatCurrencyInput = (input) => {
-        const numericValue = input.replace(/[^0-9.]/g, '');
-        const numericAmount = parseFloat(numericValue);
-        if (!isNaN(numericAmount)) {
-            const formattedCurrency = numericAmount.toLocaleString('en-US', {
-                style: 'currency',
-                currency: 'EUR', 
-                minimumFractionDigits: 2,
-            });
-            return formattedCurrency;
+      
+        if (!jobTitle.trim() || !jobDescription.trim()) {
+          setMsg('Please fill in both title and description.');
+          return;
         }
-        return input;
-    };*/
- 
+      
+        try {
+          await axios.post(apiEndpoints.jobPost, {
+            userId: user.userId,
+            title: jobTitle,
+            description: jobDescription,
+            skills: skills,
+            budget: budget,
+            deadline: deadline,
+            location: location,
+          });
+      
+          setIsPostSuccessful(true);
+      
+          setJobTitle('');
+          setJobDescription('');
+          setSkills('');
+          setBudget('');
+          setDeadline('');
+          setLocation('');
+        } catch (error) {
+          if (error.response) {
+            console.log(error.response.data.msg);
+            setMsg(error.response.data.msg);
+          }
+          setIsPostSuccessful(false);
+        }
+      };
+      
+
     return (
         <section>
             <div>
@@ -57,7 +60,8 @@ const JobPost= () => {
                         <div>
                             <h1>Initiate a task and welcome submissions from applicants</h1>
                             <form onSubmit={Post}>
-                                <p>{msg}</p>
+                                {isPostSuccessful && <p>Post successful!</p>}
+                                {!isPostSuccessful && msg && <p>{msg}</p>}
                                 <div>
                                     <label>Task title</label>
                                     <div>

@@ -4,21 +4,22 @@ import { apiEndpoints } from '../config/apiConfig.js';
 import { useUserContext } from '../context/UserContext';
 import './styles/applyPage.css';
 import SelectedFreelancer from './SelectedFreelancer.js';
+import useFreelancerStore from '../context/freelancerStore.js';
 
 
-const InvitingFreelancer = ({ freelancerId, onApplySuccess }) => {
+const InvitingFreelancer = ({ onApplySuccess }) => {
   const [statusMessage, setStatusMessage] = useState('');
   const { user } = useUserContext();
   const [attachment, setAttachment] = useState(null);
   const [taskDescription, setTaskDescription] = useState('');
-
+  const { selectedFreelancerId } = useFreelancerStore();
 
 
   const handleApply = async () => {
     try {
       const response = await axios.post(apiEndpoints.applyJob, {
         userId: user.userId,
-        freelancerId: freelancerId,
+        freelancerId: selectedFreelancerId,
         taskDescription: taskDescription,
         attachment: attachment
       });

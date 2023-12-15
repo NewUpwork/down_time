@@ -4,12 +4,15 @@ import { apiEndpoints } from '../config/apiConfig.js';
 import { useUserContext } from '../context/UserContext';
 import './styles/applyPage.css';
 import SelectedJob from './SelectedJob.js';
+import useJobStore from '../context/jobStore.js';
 
-const ApplyJobForm = ({ jobId, onApplySuccess }) => {
+
+const ApplyJobForm = ({ onApplySuccess }) => {
   const [statusMessage, setStatusMessage] = useState('');
   const { user } = useUserContext();
   const [attachment, setAttachment] = useState(null);
   const [coverLetter, setCoverLetter] = useState('');
+  const { selectedJobId } = useJobStore();
 
 
 
@@ -17,7 +20,7 @@ const ApplyJobForm = ({ jobId, onApplySuccess }) => {
     try {
       const response = await axios.post(apiEndpoints.applyJob, {
         userId: user.userId,
-        jobId: jobId,
+        jobId: selectedJobId,
         coverLetter: coverLetter,
         attachment: attachment
       });

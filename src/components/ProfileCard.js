@@ -38,7 +38,7 @@ const ProfileCard =  () => {
       console.error('Logout failed:', error);
     }
   };  
-  const displayedKeys = ['firstName', 'lastName', 'role'];
+  const displayedKeys = ['firstName', 'lastName', 'username', 'role'];
 
   return (
     <div className="profile-card">
