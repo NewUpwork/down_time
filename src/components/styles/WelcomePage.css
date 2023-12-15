@@ -1,0 +1,71 @@
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f9f9f9; /* A soft off-white background */
+    color: #333;
+    
+  }
+  
+  .welcome-header {
+
+    background-color: #057EA8; /* A professional blue header */
+    color: white;
+    text-align: center;
+  }
+  
+  .welcome-header h1 {
+    margin-bottom: 0.5em;
+  }
+  
+  .welcome-header p {
+    font-size: 15px;
+  }
+  
+  .welcome-main {
+    display: flex;
+    padding: 40px 20px;
+
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .welcome-section {
+    padding: 30px;
+    background-color: white;
+    border: 1px solid #e1e1e1; /* Subtle borders */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
+  }
+  .welcome-aside {
+    padding: 30px;
+    background-color: white;
+    border: 1px solid #e1e1e1; /* Subtle borders */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
+  }
+  
+  .welcome-section:hover, .welcome-aside:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .welcome-main {
+      flex-direction: column;
+    }
+    
+    .welcome-section, .welcome-aside {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+  
+  /* Add more styling for buttons, links, etc., based on your website's theme */
+  /* ... */
+  

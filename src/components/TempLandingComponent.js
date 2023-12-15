@@ -3,48 +3,38 @@ import { useUserContext } from '../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import JobPost from './JobPostingComponent.js';
 import JobsFeed from './JobsFeedComponent.js';
-import './styles/form.css';
 import FreelancersList from './FreelancersListComponents.js';
 import AppliedJobs from './AppliedJobsComponent.js';
-
+import './styles/WelcomePage.css'; // Updated CSS filename for clarity
 
 const WelcomePage = () => {
-  const { user, updateUser } = useUserContext();
+  const { user } = useUserContext();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!user) {
       navigate('/login');
-    } else {
-      const storedUserData = localStorage.getItem('userData');
-      if (storedUserData) {
-        updateUser(JSON.parse(storedUserData));
-      }
     }
-  }, [user, updateUser, navigate]);
-
+  }, [user, navigate]);
 
   return (
-    <div>
-      <main className="main-container">
-        <section className="main-left-section">
-          <h1>Welcome, {user.firstName}!</h1>
-          <p>Thank you for joining us!</p>
-          <p>Sit back, relax, and keep detached out! We're working hard to bring you the downtime content.</p>
-          <p>Stay tuned for more updates!</p>
-        </section>
-        <section className="main-center-section" >
+    <div className="welcome-container">
+      <header className="welcome-header">
+        <h1>Welcome, {user?.firstName}!</h1>
+        <p>Thank you for joining our platform!</p>
+      </header>
+      <main className="welcome-main">
+        <section className={user.role === 'client' ? "welcome-section client" : "welcome-section freelancer"}>
           {user.role === 'client' && <JobPost />}
           {user.role === 'freelancer' && <JobsFeed />}
         </section>
-        <section className="main-right-section">
+        <aside className="welcome-aside">
           {user.role === 'client' && <FreelancersList />}
           {user.role === 'freelancer' && <AppliedJobs />}
-        </section>
+        </aside>
       </main>
     </div>
   );
 };
 
 export default WelcomePage;
-

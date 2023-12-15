@@ -6,8 +6,7 @@ import { Link } from 'react-router-dom';
 import yourImage from './images/formpicture.jfif'
 import yourLogo from './images/Regandsignup.svg'
 import { useUserContext } from '../context/UserContext.js';
-
-
+import "./styles/RegisterComponent.css"
 
 const Register = () => {
   const [firstName, setFirstName] = useState('');
@@ -62,7 +61,9 @@ const Register = () => {
           <form className="form-container" onSubmit={handleSubmit}>
             <p>{msg}</p>
             <div>
+            <Link to= "/">
             <img src={yourLogo} alt="D Logo" className ="regandsignuplogo" />
+            </Link>
               <label>Full Name</label>
               <div>
                 <input

@@ -1,0 +1,108 @@
+
+.regandsignuplogo{
+    width: 300px;
+    height: auto;
+    
+}
+
+.wrapper-main {
+    width: 1000px;
+    margin: auto;
+    background-color: #057EA8;
+    
+    height: 100vh; /* 100% of the viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+.section-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+
+  }
+  
+  .left-section-content {
+    
+    
+    text-align: center;
+   
+    background-color: #E6F2F2;
+  }
+  
+  .right-section-form {
+   
+    width: 100%;
+    
+    
+
+  
+  }
+  
+  .form-container {
+    padding: 20px;
+   
+    width: auto;
+    background-color: #E6F2F2; /* Set background color */
+  }
+  
+  .form-container label {
+    display: flex;
+    margin: 10px 0;
+    
+    
+  }
+  
+  .form-container input {
+    
+    width: calc(70% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #06826b; /* Set input border color */
+    border-radius: 5px;
+  }
+  
+  .form-container button {
+    background-color: #057EA8; /* Set button background color */
+    color: white;
+    border: none;
+
+    margin: auto;
+    padding: 10px 20px;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  
+  .form-image{
+    
+    width:100%;
+    height: auto;
+    background-color: #6198ab;
+
+ 
+    
+
+  }
+  .already-registered {
+    text-align: center;
+  }
+  
+  .already-registered p {
+    margin: 0; /* Remove default margin */
+  }
+  
+  .already-registered a {
+    color: #057EA8; /* Set link color */
+    text-decoration: none; /* Remove default underline */
+    font-weight: bold; /* Make the link bold */
+  }
+  
+
+  .register-page{
+    background-color: #057EA8;
+    margin: 0;
+    padding: 0;
+  }
