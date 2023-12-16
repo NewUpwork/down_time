@@ -6,8 +6,7 @@ import { Link } from 'react-router-dom';
 import yourImage from './images/formpicture.jfif'
 import yourLogo from './images/Regandsignup.svg'
 import { useUserContext } from '../context/UserContext.js';
-
-
+import './styles/register.css'
 
 const Register = () => {
   const [firstName, setFirstName] = useState('');

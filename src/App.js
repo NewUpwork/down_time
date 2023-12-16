@@ -21,8 +21,8 @@ function App() {
       <Router>
         <CookiesConsent />
         <Routes>
-          <Route exact path="/login" element={<Login/>} />
-          <Route path="/register" element={<Register />} />
+          <Route exact path="/login" element={<Layout><Login/></Layout>} />
+          <Route path="/register" element={<Layout><Register /></Layout>} />
           <Route path="/password-recovery" element={<Layout><PasswordRecoveryForm /></Layout>}/>
           <Route path="/apply" element={<Layout><ApplyJobForm/></Layout>}/>
           <Route path="/invite" element={<Layout><InvitingFreelancer/></Layout>}/>

@@ -13,14 +13,14 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #057fa8eb; /* Set your desired background color */
+    background-color: #057fa8eb; 
     padding: 20px;
   }
   .second-element {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #72CCD7; /* Set your desired background color */
+    background-color: #72CCD7; 
     padding: 20px;
     
   }

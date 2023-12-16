@@ -4,6 +4,8 @@ import { apiEndpoints } from '../config/apiConfig.js';
 import { Link, useNavigate } from 'react-router-dom';
 import { useUserContext } from '../context/UserContext';
 import yourImage from './images/formpicture.jfif'
+import "./styles/signInComponent.css"
+import yourLogo from './images/Regandsignup.svg'
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -62,14 +64,17 @@ const Login = () => {
     return (
       <section className='signin'>
         <div className='signin-wrapper-main'>
-        <div className="signin-section-container">
-        <div className="signin-left-section-content">
-        <img src={yourImage} alt="Landing Page" className="form-image" />
-        </div>
+          <div className="signin-section-container">
+          <div className="signin-left-section-content">
+            <img src={yourImage} alt="Landing Page" className="form-image" />
+          </div>
         <div className="signin-right-section-form">
           <form className="signin-form-container" onSubmit={Auth}>
             <p>{msg}</p>
             <div>
+            <Link to= "/">
+            <img src={yourLogo} alt="D Logo" className ="regandsignuplogo" />
+            </Link>
               <label>Email</label>
               <div>
                 <input
@@ -97,9 +102,7 @@ const Login = () => {
               
               <div className='signin-already-registered'>
                   <p> <Link to="/password-recovery">Forgot your password?</Link></p>
-              </div>
-              
-              
+              </div>  
             </div>
             <div>
               <button className="button" type="submit">
@@ -110,7 +113,7 @@ const Login = () => {
                   <p>Need an account? <Link to="/register">Register here</Link></p>
             </div>
           </form>
-         
+
         </div>
       </div>
         </div>

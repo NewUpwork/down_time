@@ -2,29 +2,57 @@
   position: fixed;
   top: 70px;
   right: 30px;
-  background-color: #54595d;
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 8px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to bottom right, #E6F2F2, #CDEBEB); /* Subtle gradient */
+  color: #333;
+  border: none;
+  padding: 20px;
+  border-radius: 12px; /* Slightly larger radius for a modern look */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   z-index: 1000;
-  width: 300px; 
-  height: 300px;
+  width: 280px; /* Adjusted width */
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden; /* Ensures content fits well */
 }
 
 .profile-info {
-  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
 }
 
 .property {
-  font-weight: bold;
-  margin-right: 5px;
+  font-weight: 600; /* Slightly bolder */
+  color: #057EA8;
+  flex-shrink: 0;
+}
+
+.value {
+  color: #333;
+  margin-left: 5px; /* Space between property and value */
+  flex-grow: 1;
+  text-align: right; /* Aligning the value to the right for a modern look */
 }
 
 .buttons {
-  margin-top: auto;
   display: flex;
   gap: 10px;
+  margin-top: 15px; /* Added margin for spacing */
+}
+
+.buttons button {
+  background-color: #057EA8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  flex-grow: 1; /* Buttons take equal space */
+  transition: all 0.3s ease-in-out;
+}
+
+.buttons button:hover {
+  background-color: #045c6d;
+  transform: scale(1.05); /* Slight increase in size on hover */
 }

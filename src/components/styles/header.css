@@ -1,5 +1,3 @@
-/* Header.module.css */
-/* header.css */
 .header-container {
     background-color: #057EA8;
     color: white;
@@ -42,7 +40,7 @@
     border: none;
     padding: 8px 12px;
     border-radius: 10px;
-    margin-left: 10px; /* Adjust the spacing between buttons if needed */
+    margin-left: 10px; 
     cursor: pointer;
 }
 .button1 {
@@ -51,7 +49,7 @@
     border: none;
     padding: 8px 12px;
     border-radius: 10px;
-    margin-left: 10px; /* Adjust the spacing between buttons if needed */
+    margin-left: 10px; 
     cursor: pointer;
 }
 
@@ -67,7 +65,12 @@ footer {
   text-align: center;
   z-index: 2;
 }
-
+.footer-social a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 24px;
+  margin-right: 10px;
+}
 
 
 .regandsignuplogo{
@@ -80,8 +83,7 @@ footer {
     width: 1000px;
     margin: auto;
     background-color: #057EA8;
-    
-    height: 100vh; /* 100% of the viewport height */
+    height: 90vh; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -93,29 +95,23 @@ footer {
     display: flex;
     justify-content: center;
     flex-direction: row-reverse;
+    height: 600px;
 
   }
   
-  .left-section-content {
-    
-    
+  .left-section-content {    
     text-align: center;
-   
     background-color: #E6F2F2;
   }
   
   .right-section-form {
    
     width: 100%;
-    
-    
-
   
   }
   
   .form-container {
     padding: 20px;
-   
     width: auto;
     background-color: #E6F2F2; /* Set background color */
   }
@@ -157,136 +153,5 @@ footer {
     
 
   }
-  .already-registered {
-    text-align: center;
-  }
-  
-  .already-registered p {
-    margin: 0; /* Remove default margin */
-  }
-  
-  .already-registered a {
-    color: #057EA8; /* Set link color */
-    text-decoration: none; /* Remove default underline */
-    font-weight: bold; /* Make the link bold */
-  }
-  
 
-  .register-page{
-    background-color: #057EA8;
-    margin: 0;
-    padding: 0;
-  }
-
-
-  /*SiginPage*/
-
-  .signin-wrapper-main {
-    width: 1000px;
-    margin: auto;
-    background-color: #057EA8;
-    
-    height: 100vh; /* 100% of the viewport height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
-
-.signin-section-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: row-reverse;
-
-  }
-  
-  .signin-left-section-content {
-    
-    
-    text-align: center;
-   
-    background-color: #E6F2F2;
-  }
-  
-  .signin-right-section-form {
-   
-    width: 100%;
-    
-    
-
-  
-  }
-  
-  .signin-form-container {
-    padding: 20px;
-   
-    width: auto;
-    height: 500px;
-    background-color: #E6F2F2; /* Set background color */
-  }
-  
-  .signin-form-container label {
-    display: flex;
-    margin: 10px 0;
-    
-    
-  }
-  
-  .signin-form-container input {
-    
-    width: calc(70% - 20px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #06826b; /* Set input border color */
-    border-radius: 5px;
-  }
-  
-  .signin-form-container button {
-    background-color: #057EA8; /* Set button background color */
-    color: white;
-    border: none;
-
-    margin: auto;
-    padding: 10px 20px;
-    border-radius: 2px;
-    cursor: pointer;
-  }
-  
-  .signin-form-image{
-    
-    width:100%;
-    height: auto;
-    background-color: #6198ab;
-
- 
-    
-
-  }
-  .signin-already-registered {
-    text-align: center;
-  }
-  
-  .signin-already-registered p {
-    margin: 0; /* Remove default margin */
-  }
-  
-  .signin-already-registered a {
-    color: #057EA8; /* Set link color */
-    text-decoration: none; /* Remove default underline */
-    font-weight: bold; /* Make the link bold */
-  }
-
-  .not-registered {
-    position: relative;
-    top: 100px;
-
-  }
-  
-
-  .signin{
-    background-color: #057EA8;
-    margin: 0;
-    padding: 0;
-  }
 

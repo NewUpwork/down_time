@@ -23,14 +23,19 @@ const Header = () => {
   return (
     <div className="header-container">
       <div className="left-section">
-        <Link to="/home">
-          <h1>
-            <img src={yourLogo} alt="Downtime Logo" className="logo" />
-          </h1>
-        </Link>
-      </div>
-      <div className="center-section">
-        <input type="text" placeholder="Search..." className="search-bar" />
+        {user ? (
+          <Link to="/home">
+            <h1>
+              <img src={yourLogo} alt="Downtime Logo" className="logo" />
+            </h1>
+          </Link>
+        ) : (
+          <Link to="/login">
+            <h1>
+              <img src={yourLogo} alt="Downtime Logo" className="logo" />
+            </h1>
+          </Link>
+        )}
       </div>
       <div className="right-section">
         {user ? (
