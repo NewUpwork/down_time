@@ -1,6 +1,7 @@
 /* Header.module.css */
 /* header.css */
 
+
 .header-container {
     background-color: #057EA8;
     color: white;
@@ -74,11 +75,24 @@ body {
   overflow: auto; /* Add this to enable scrolling if content overflows */
 }
 
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
+
+/* Main content area (adjust the class name as needed) */
+.main-content {
+  flex: 1; /* This will make the content area grow and push the footer down */
+}
+
+/* Footer CSS */
 footer {
   background-color: #057EA8;
   color: #ffffff;
   padding: 20px 0;
   text-align: center;
+  /* Rest of your footer styles */
 }
 
 .footer-content {
