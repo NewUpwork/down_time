@@ -1,0 +1,72 @@
+.job-container {
+    padding: 10px;
+    max-width: auto;
+    margin: 20px auto; /* Centering the container */
+    border-radius: 5px; /* Consistent with form's input fields */
+    background-color: #E6F2F2; /* Light background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding some shadow for depth */
+  }
+  
+  .job-container h1, .job-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .job-container .form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #000000;
+    font-size: 16px;
+  }
+  
+  .job-container .form-control, .job-container p {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #06826b;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .job-container .form-control:focus {
+    border-color: #057EA8;
+    box-shadow: 0 0 0 2px rgba(5, 126, 168, 0.2);
+  }
+  
+  .job-container .success-message,
+  .job-container .error-message {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #fff;
+  }
+  
+  .job-container .success-message {
+    background-color: #2ecc71;
+  }
+  
+  .job-container .error-message {
+    background-color: #d9d2d1;
+  }
+  
+  .job-container .action, .job-container .buttons {
+    text-align: center;
+  }
+  
+  .job-container button {
+    background-color: #057EA8;
+    color: white;
+    border: none;
+    padding: 8px 15px; /* Reduced padding for a smaller button */
+    font-size: 14px; /* Smaller font size */
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .job-container button:hover {
+    background-color: #045c6d;
+  }
+  
+  
