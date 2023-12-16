@@ -21,7 +21,6 @@ const PasswordRecoveryForm = () => {
   };
 
   return (
-    <div className="recovery-form-container">
     <div className='recovery-form'>
       <label htmlFor="email">Email:</label>
       <input
@@ -33,7 +32,6 @@ const PasswordRecoveryForm = () => {
       />
 
       <button onClick={handlePasswordRecovery}>Recover Password</button>
-    </div>
     </div>
   );
 };

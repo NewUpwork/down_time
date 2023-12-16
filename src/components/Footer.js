@@ -4,7 +4,6 @@ import yourLogo from './images/logo.svg';
 
 const Footer = () => {
     return (
-      
         <footer>
           <div className="footer-content">
             <div className="footer-logo">
@@ -21,10 +20,10 @@ const Footer = () => {
             <div className="footer-social">
               <h3>Follow Us</h3>
               <ul>
-                <li>Facebook</li>
-                <li> Twitter</li>
-                <li> Instagram</li>
-                <li> LinkedIn</li>
+                <li><a href="#"><i className="fab fa-facebook"></i> Facebook</a></li>
+                <li><a href="#"><i className="fab fa-twitter"></i> Twitter</a></li>
+                <li><a href="#"><i className="fab fa-instagram"></i> Instagram</a></li>
+                <li><a href="#"><i className="fab fa-linkedin"></i> LinkedIn</a></li>
               </ul>
             </div>
             <div className="footer-newsletter">

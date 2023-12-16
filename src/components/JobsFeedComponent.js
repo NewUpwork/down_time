@@ -36,19 +36,17 @@ const JobsFeed = () => {
   };
 
   return (
-    <div className="job-container">
-    <h2>Jobs Feed</h2>
-    {jobs.map((job) => (
-      <div key={job.job_id} className="form-group">
-        <h3>{job.title}</h3>
-        <p>{job.description}</p>
-        <div className="buttons">
+    <div>
+      <h2>Jobs Feed</h2>
+      {jobs.map((job) => (
+        <div key={job.job_id}>
+          <h3>{job.title}</h3>
+          <p>{job.description}</p>
           <button onClick={() => handleApplyClick(job.job_id)}>Apply</button>
         </div>
-      </div>
-    ))}
-  </div>
-);
+      ))}
+    </div>
+  );
 };
 
 export default JobsFeed;
