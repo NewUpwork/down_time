@@ -4,8 +4,6 @@ import { apiEndpoints } from '../config/apiConfig.js';
 import { Link, useNavigate } from 'react-router-dom';
 import { useUserContext } from '../context/UserContext';
 import yourImage from './images/formpicture.jfif'
-import "./styles/SignInComponent.css"
-import yourLogo from './images/Regandsignup.svg'
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -72,9 +70,6 @@ const Login = () => {
           <form className="signin-form-container" onSubmit={Auth}>
             <p>{msg}</p>
             <div>
-            <Link to= "/">
-            <img src={yourLogo} alt="D Logo" className ="regandsignuplogo" />
-            </Link>
               <label>Email</label>
               <div>
                 <input
