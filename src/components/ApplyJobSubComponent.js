@@ -40,7 +40,6 @@ const ApplyJobForm = ({ onApplySuccess }) => {
   };
 
   return (
-    <div className="background-applypage">
     <main className='apply-page'>
       <section className='selceted_job'>
       <SelectedJob />
@@ -67,7 +66,6 @@ const ApplyJobForm = ({ onApplySuccess }) => {
         </div>
       </section>
     </main>
-    </div>
   );
   
 }
