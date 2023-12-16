@@ -23,19 +23,11 @@ const Header = () => {
   return (
     <div className="header-container">
       <div className="left-section">
-        {user ? (
-          <Link to="/home">
-            <h1>
-              <img src={yourLogo} alt="Downtime Logo" className="logo" />
-            </h1>
-          </Link>
-        ) : (
-          <Link to="/login"> {/* Fixed the typo here: "/lgoin" to "/login" */}
-            <h1>
-              <img src={yourLogo} alt="Downtime Logo" className="logo" />
-            </h1>
-          </Link>
-        )}
+        <Link to="/home">
+          <h1>
+            <img src={yourLogo} alt="Downtime Logo" className="logo" />
+          </h1>
+        </Link>
       </div>
       <div className="center-section">
         <input type="text" placeholder="Search..." className="search-bar" />
@@ -45,14 +37,16 @@ const Header = () => {
           <div>
             <div onClick={() => setShowProfileCard(!showProfileCard)}>
               <img
-                src={user.profilePicture || defaultProfilePicture} 
+                src={user.profilePicture || defaultProfilePicture}
                 alt="Profile"
                 style={{ width: '50px', height: '50px', cursor: 'pointer' }}
               />
             </div>
             {showProfileCard && <ProfileCard user={user} />}
+          
           </div>
         ) : (
+          // If user is not logged in, display login and signup buttons
           <>
             <Link to="/login">
               <button className="button">Login</button>
