@@ -8,13 +8,11 @@ The project is developed by the third-year Information Technology students from 
 - **Moeez Khan**, [GitHub account](https://github.com/iammoeezkhann)
 - **Yinan Li**, [GitHub account](https://github.com/YinanLi1987)
 
-We have been working together throughout the whole project and everyone has been involved in all the parts of the development process.
-
 ## Introduction of the project
 
-This project is about creating a application for providing unpaid company-oriented project for IT students.
+This project is about creating a application for connecting freelancers with clients looking for varous services.
 
-- **Video of the project**, [Link](https://www.youtube.com)
+- **Video of the project**, [Link](https://www.youtube.com/watch?v=fWnQAp_N7Nw)
 
 ## Description of the project
 
@@ -58,86 +56,20 @@ The project has been developed by following Agile software development method an
 
 ## Interface description
 
-The application consists of different views and Signup/Login functionality. These can be accessed through the navigation bar on top of the page:
+The application features:
 
-1. Log in/out
-2. Sing up
-3. Accept/Refuce cookies
-4. Employer publish job:
-   - This view is ................
-5. Student apply for job:
-   - ..........
-6. Message system between employer and student:
-   - ..........
+1. Host users on "Freelancing Market place"
+2. Dynamic functionalities based on user roles(post)
+3. Dynamic content rendering based on user roles(get)
+4. Deployed backend and frontend apps to Heroku
 
 > Smallest supported window size is 600px horizontal.
 
-## How to install and use the application (locally)
+## How to test it:
 
-**Step one:**
-
-Download the project / clone the project repository
-
-**Step two:**
-
-Within the root folder, install the following dependencies:
-
-- [**Axios.js**](https://github.com/axios/axios#readme) 1.1.3
-- [**Chart.js**](https://www.chartjs.org/) 3.9.1
-- [**react-chartjs-2**](https://github.com/reactchartjs/react-chartjs-2#readme) 4.3.1
-- [**jwt-decode**](https://github.com/auth0/jwt-decode#readme) 3.1.2
-- [**Bootstrap**](https://github.com/twbs/bootstrap#readme) 5.2.2
-- [**react-dom**](https://www.npmjs.com/package/react-dom) 18.2.0
-- [**react-router-dom**](https://www.npmjs.com/package/react-router-dom) 6.4.3
-
-**Step three:**
-
-Go to the server folder:
-
-```
-npm init -y
-npm install express
-```
-
-Install the following dependencies:
-
-- [**bcrypt**](https://github.com/dcodeIO/bcrypt.js#readme) 2.4.3
-- [**body-parser**](https://github.com/expressjs/body-parser#readme) 1.20.1
-- [**cors**](https://github.com/expressjs/cors#readme) 2.8.5
-- [**jsonwebtoken**](https://github.com/auth0/node-jsonwebtoken#readme) 8.5.1
-- [**mysql**](https://github.com/mysqljs/mysql#readme) 2.18.1
-- [**passport**](https://github.com/jaredhanson/passport#readme) 0.6.0
-- [**passport-http**](https://github.com/jaredhanson/passport-http#readme) 0.3.0
-- [**passport-jwt**](https://github.com/themikenicholson/passport-jwt#readme) 4.0.0
-- [**uuid**](https://github.com/uuidjs/uuid#readme) 9.0.0
-
-**Step four:**
-
-Create the local database :
-
-- Start mysql and import the _charttest.sql_ file into your local database
-- Create a _database.js_ file inside the server folder as follows, and modify the ‘xxxx’ part as needed:
-
-```
-const mysql = require("mysql");
-        const connection = mysql.createConnection({
-         host: "xxxx",
-         user: "xxxx",
-         password: "xxxx",
-         database: "xxxx",
-   });
-
-module.exports = connection;
-```
-
-**Step five:**
-
-To start the application, run the following command:
-
-```
-cd server
-node index.js
-cd ..
-npm start
-
-```
+[git repos:] (https://github.com/orgs/NewUpwork/repositories)
+[serverside:] (https://downtime-endpoints-65f5397a1113.herokuapp.com)
+[webapp:] (https://agile-wave-58782-3b58a0ac74b1.herokuapp.com/login)
+user role freelancer: mufida@↕test.com password: 123456
+user role client: teacher@test.com password: 123456
+user role client: yli@test.com password: 123456
