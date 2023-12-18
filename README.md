@@ -67,9 +67,10 @@ The application features:
 
 ## How to test it:
 
-[git repos:] (https://github.com/orgs/NewUpwork/repositories)
-[serverside:] (https://downtime-endpoints-65f5397a1113.herokuapp.com)
-[webapp:] (https://agile-wave-58782-3b58a0ac74b1.herokuapp.com/login)
-user role freelancer: mufida@↕test.com password: 123456
-user role client: teacher@test.com password: 123456
-user role client: yli@test.com password: 123456
+[**git repos:**](https://github.com/orgs/NewUpwork/repositories)
+[**serverside:**](https://downtime-endpoints-65f5397a1113.herokuapp.com)
+[**webapp:**](https://agile-wave-58782-3b58a0ac74b1.herokuapp.com/login)
+
+- user role freelancer: mufida@↕test.com password: 123456
+- user role client: teacher@test.com password: 123456
+- user role client: yli@test.com password: 123456
